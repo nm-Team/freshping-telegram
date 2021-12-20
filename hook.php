@@ -28,11 +28,11 @@ $request_start_time = date(
 );
 $check_name = $data->webhook_event_data->check_name;
 
-$message = "** nmTeam System Status Change **\n\n`$check_name` System Status Changed to $check_state \n\n";
-$message .= "`URL tested: $request_url `\n";
-$message .= "`Test time:  $request_start_time `\n";
-$message .= "`HTTP code:  $http_status_code `\n";
-$message .= "\n\n🏷 #SLA\n🔗 https://nmteam.xyz\n👥 @nmteamchat";
+$message = "nmTeam System Status Change \n\n$check_name System Status Changed to $check_state \n\n";
+$message .= "URL tested: $request_url \n";
+$message .= "Test time:  $request_start_time \n";
+$message .= "HTTP code:  $http_status_code \n";
+$message .= "\n🏷 #SLA\n🔗 https://nmteam.xyz\n👥 @nmteamchat";
 
 $data = [
     'chat_id' => CHAT_ID,
