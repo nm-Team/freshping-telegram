@@ -19,14 +19,14 @@ $telegram = new Longman\TelegramBot\Telegram(BOT_TOKEN, BOT_USERNAME);
 use Longman\TelegramBot\Request;
 
 $data = json_decode($json_data);
-$check_name = $data->webhook_event_data->check_name;
-$check_state = $data->webhook_event_data->check_state_name;
-$request_url = $data->webhook_event_data->request_url;
+$check_name = $data->check_name;
+$check_state = $data->response_summary." (".$data->response_state.")";
+$request_url = $data->check_url;
 $request_start_time = date(
     'Y-m-d H:i:s T', 
-    strtotime( $data->webhook_event_data->request_start_time )
+    strtotime( $data->request_datetime )
 );
-$check_name = $data->webhook_event_data->check_name;
+$http_status_code = $data->response_status_code;
 
 $message = "nmTeam System Status Change \n\n$check_name System Status Changed to $check_state \n\n";
 $message .= "URL tested: $request_url \n";
